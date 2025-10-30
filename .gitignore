@@ -7,3 +7,5 @@ dist/
 .env
 .env.*
 .DS_Store
+frontend/.next
+frontend/out
