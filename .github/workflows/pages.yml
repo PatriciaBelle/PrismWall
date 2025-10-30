@@ -36,10 +36,15 @@ jobs:
         env:
           GITHUB_ACTIONS: "true"
         run: npm run build
+      - name: Verify export directory
+        working-directory: frontend
+        run: |
+          ls -la
+          test -d out && ls -la out || (echo "out/ not found" && exit 2)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: frontend/out
+          path: ${{ github.workspace }}/frontend/out
   deploy:
     environment:
       name: github-pages
