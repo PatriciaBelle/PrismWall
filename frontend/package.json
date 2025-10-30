@@ -7,7 +7,7 @@
     "clean": "rimraf .next",
     "dev": "npm run clean && npm run genabi && next dev --turbopack",
     "dev:mock": "npm run clean && npm run genabi && next dev --turbopack",
-    "build": "next build",
+    "build": "npm run genabi && next build",
     "start": "next start",
     "genabi": "node ./scripts/genabi.mjs"
   },
@@ -15,7 +15,7 @@
     "@zama-fhe/relayer-sdk": "0.2.0",
     "ethers": "^6.15.0",
     "idb": "^8.0.3",
-    "next": "^15.4.2",
+    "next": "15.5.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
