@@ -35,7 +35,10 @@ jobs:
         working-directory: frontend
         env:
           GITHUB_ACTIONS: "true"
-        run: npm run build
+        run: |
+          npm run build
+          # Compatibility: Next.js <15.5 requires `next export`; >=15.5 auto-exports on build.
+          npx next export || echo "next export not needed; skipping"
       - name: Verify export directory
         working-directory: frontend
         run: |
